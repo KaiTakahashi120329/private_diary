@@ -61,11 +61,11 @@ class DiaryUpdateView(LoginRequiredMixin, generic.UpdateView):
         return reverse_lazy('diary:diary_detail', kwargs={'pk': self.kwargs['pk']})
 
     def form_valid(self, form):
-        message.success(self.request, '日記を更新しました。')
+        messages.success(self.request, '日記を更新しました。')
         return super().form_valid(form)
     
     def form_valid(self, form):
-        message.error(self.request, '日記の更新に失敗しました。')
+        messages.error(self.request, '日記の更新に失敗しました。')
         return super().form_invalid(form)
 
 class DiaryDeleteView(LoginRequiredMixin, generic.DeleteView):
